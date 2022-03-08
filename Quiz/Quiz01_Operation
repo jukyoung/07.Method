@@ -1,0 +1,35 @@
+
+public class Quiz01_Operation {
+	
+	public static int plus(int a, int b) {
+		return a + b;
+	}
+	
+	public static int minus(int c, int d) {
+		return c - d;
+	}
+	
+	public static int multiply(int e, int f) {
+		return e * f;
+	}
+	public static int divide(int g, int h) {
+		return g / h;
+	}
+	
+	public static void main(String[] args) {
+	
+		int num1 = 10;
+		int num2 = 5;
+		
+		/* + - * /를 수행하는 각각의 메서드를 구성해서 
+		 * 결과값을 출력해 보세요.
+		 * */
+		// + : 2개이상의 정수 가 필요함
+	
+		
+		System.out.println("덧셈 값 : " + plus(num1, num2));
+		System.out.println("뺄셈 값 : " + minus(num1, num2));
+		System.out.println("곱셈 값 : " + multiply(num1, num2));
+		System.out.println("나눗셈 값 : " + divide(num1,num2));
+}
+}
