@@ -12,7 +12,8 @@ public class Quiz04_Customer {
 			System.out.println("손님 "+count + "명 입장하였습니다.");
 		}
 	}
-	public static void getCustomer(float temp) {
+	public static void getCustomer(double temp) {
+		System.out.println("현재 온도는 " + temp +"도 입니다.");
 		if(temp >= 36.5 && temp <= 37) {
 			System.out.println("정상 체온입니다.");
 		}else if(temp < 36.5 ) {
@@ -22,12 +23,47 @@ public class Quiz04_Customer {
 		}
 	}
 	public static void getCustomer(boolean meal) {
-		if(meal == true) {
+		if(meal) { //변수 안에 true 라는 값이 들어있기때문에 meal == true 비교 할 필 요 없음
 			System.out.println("매장 손님입니다.");
-		}else if(meal == false) {
+		}else {
 			System.out.println("포장 손님입니다.");
 		}
 	}
+	/*  ㄱ. 출력구문은 메서드 안에 넣는건 자제하기! -> 사용자가 보는 화면이 콘솔이 아니라 웹브라우저로 바뀌게 되면 
+	 *   System.out.println는 수정을 해줘야함 -> 유지보수 면에서 굉장히 비효율적
+	 * 
+	 public static String getCustomer(String name){
+	  return name + "님 안녕하세요!";
+                  }
+	public static String getCustomer(int count) {
+	 if(count == 1) {
+		 return "혼밥손님 입니다.";
+	}else {
+		return "손님 "+count + "명 입장하였습니다.";
+	      }
+    }
+    
+    public static String getCustomer(double temp) {
+		if(temp >= 36.5 && temp <= 37) {
+			return"정상 체온입니다.";
+		}else if(temp < 36.5 ) {
+			return "저체온 입니다.";
+		}else { -> else if 를 쓰면 3가지 경우가 모두 false 일 경우 가 있어서 
+		          또 다른 return 문을 넣어줘야하기 때문에 else 쓰기
+			return "체온이 너무 높습니다.";
+		}
+	}
+	public static String getCustomer(boolean meal) {
+		if(meal) { 
+			return "매장 손님입니다.";
+		}else {
+			return "포장 손님입니다.";
+		}
+	}
+	
+	
+	 
+	 */  
 	
    public static void main(String[] args) {
 	
@@ -49,14 +85,18 @@ public class Quiz04_Customer {
 	   System.out.print("1. 이름을 입력해 주세요 >> ");
 	   String name = sc.nextLine();
 	   getCustomer(name);
+	  //ㄱ. System.out.println(getCustomer(name));
 	   
 	   System.out.print("\n2. 인원수를 입력해 주세요 >> ");
 	   int count = Integer.parseInt(sc.nextLine());
 	   getCustomer(count);
+	// ㄱ. System.out.println(getCustomer(count));
 	   
 	   System.out.print("\n3. 현재 체온을 입력해 주세요. >> ");
-	   float temp = Float.parseFloat(sc.nextLine());
+	   double temp = Double.parseDouble(sc.nextLine());
 	   getCustomer(temp);
+	   //ㄱ.System.out.println("현재 온도는 " + temp +"도 입니다.");
+	   //ㄱ. System.out.println(getCustomer(temp));
 	   if(temp>37) {
 		   break;
 	   }
@@ -64,6 +104,7 @@ public class Quiz04_Customer {
 	   System.out.print("\n4. 매장 식사 여부를 입력해 주세요 >> ");
 	   boolean meal =Boolean.parseBoolean(sc.nextLine());
 	   getCustomer(meal);
+	 //ㄱ. System.out.println(getCustomer(meal));
 	   break;
 	   }
 	   
